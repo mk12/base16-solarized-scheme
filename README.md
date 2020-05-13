@@ -2,11 +2,28 @@
 
 A more accurate [Solarized][] color scheme for [Base16][].
 
-TODO: screenshots
-
+|       | This repository                 | [arzg/base16-solarized-scheme][arzg] |
+| ----- | ------------------------------- | ------------------------------------ |
+| Dark  | ![](screenshots/mk12-dark.png)  | ![](screenshots/arzg-dark.png)       |
+| Light | ![](screenshots/mk12-light.png) | ![](screenshots/arzg-light.png)      |
+ 
 ## Usage
 
-TODO: usage
+To build templates using this scheme instead of the [official one][arzg]:
+
+```
+pip3 install pybase16-builder
+cd some/empty/directory
+pybase16 update
+rm -rf schemes/solarized
+git clone https://github.com/mk12/base16-solarized-scheme schemes/solarized
+# Build all templates and schemes:
+pybase16 build
+# Build just solarized:
+pybase16 build -s 'solarized-*'
+```
+
+Since I only use Base16 for [kitty][], I use a [custom build setup][b16kitty] that makes the process much easier.
 
 ## Rationale
 
@@ -82,3 +99,5 @@ This accurately matches up the monotones by their intended meaning in each frame
 [Base16]: https://github.com/chriskempson/base16
 [styling]: https://github.com/chriskempson/base16/blob/master/styling.md
 [arzg]: https://github.com/arzg/base16-solarized-scheme
+[kitty]: https://sw.kovidgoyal.net/kitty
+[b16kitty]: https://github.com/mk12/base16-kitty/
