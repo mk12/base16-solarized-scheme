@@ -84,15 +84,23 @@ This repository instead maps the monotones like this:
 | -----: | --------------------- | --------: | ---------: | --------------------- |
 |     00 | background            |        03 |          3 | background            |
 |     01 | emphasized background |        02 |          2 | emphasized background |
-|     02 | selection background  |        02 |          2 | emphasized background |
+|     02 | selection background  |   #33515b |    #c0c4bb |                       |
 |     03 | comments              |        01 |          1 | comments              |
 |     04 | de-emphasized text    |        00 |          0 |                       |
 |     05 | text                  |         0 |         00 | text                  |
 |     06 | emphasized text       |         1 |         01 | emphasized text       |
 |     07 | inverse background    |         3 |         03 | inverse background    |
 
-This accurately matches up the monotones by their intended meaning in each framework, at the cost of using the same color for Base16's base01 and base02 (since Solarized lacks a shade in between "emphasized background" and "comments").
+This accurately matches up the monotones by their intended meaning in each framework, at the cost of inventing extra colors for "selection background". This is necessary because Solarize lacks a shade in between "emphasized background" and "comments". I chose these new colors by linearly interpolating 50% between 02/2 and 01/1 in [CIELAB][]:
 
+| Solarized |      L\*a\*b       |     Hex     |
+| --------: | :----------------: | :---------: |
+|        02 |     20 -12 -12     |   #073642   |
+|           | **32.5 -9.5 -9.5** | **#33515b** |
+|        01 |      45 -7 -7      |   #586e75   |
+|         1 |      65 -5 -2      |   #93a1a1   |
+|           |  **78.5 -2.5 4**   | **#c0c4bb** |
+|         2 |     92  0  10      |   #eee8d5   |
 
 [Solarized]: https://ethanschoonover.com/solarized/
 [usage]: https://ethanschoonover.com/solarized#usage-development
@@ -101,3 +109,4 @@ This accurately matches up the monotones by their intended meaning in each frame
 [arzg]: https://github.com/arzg/base16-solarized-scheme
 [kitty]: https://sw.kovidgoyal.net/kitty
 [b16kitty]: https://github.com/mk12/base16-kitty/
+[CIELAB]: https://en.wikipedia.org/wiki/CIELAB_color_space
